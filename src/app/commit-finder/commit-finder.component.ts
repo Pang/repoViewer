@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { GithubApiService } from '../services/github-api.service'
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-commit-finder',
@@ -8,8 +7,11 @@ import { GithubApiService } from '../services/github-api.service'
 })
 
 export class CommitFinderComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input() selectedRepo: string;
+  @Input() gitUser: string;
+  @Input() gitCommits: {};
 
   ngOnInit() {
   }

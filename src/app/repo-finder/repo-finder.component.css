@@ -1,6 +1,5 @@
 #errorMsg {
     width: 250px;
-    display: none;
 }
 
 ul {
@@ -10,4 +9,9 @@ ul {
 
 input:-webkit-autofill {
     box-shadow:0 0 0 50px white inset;
+}
+
+a:hover{
+    cursor: pointer;
+    background-color: rgb(255, 187, 0);
 }

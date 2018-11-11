@@ -1,5 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { GithubApiService } from '../services/github-api.service';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-repo-finder',
@@ -12,16 +13,20 @@ export class RepoFinderComponent implements OnInit {
 
   repositories: any[];
   gitProfile: string;
-  errorMsg: boolean;
-  @Output() repoCommits: any[];
-  @Output() selectedRepo: string;
+  gitCommits: [];
+  errorMsg: boolean = false;
+
+  @Output() selectRepoEvent = new EventEmitter<object>();
+  gitRepoDetails:{};
 
   onSubmit(){
-    this.githubApi.getRepos(this.gitProfile).subscribe(repo => this.repositories = repo.json());
+    this.errorMsg = false;
+    this.githubApi.getRepos(this.gitProfile).subscribe(repo => this.repositories = repo.json(), error => this.errorMsg = true);
   }
 
-  selectRepo(){
-    this.githubApi.getCommits(this.gitProfile, this.selectedRepo).subscribe( commits => this.repoCommits = commits.json());
+  selectRepo(e){
+    this.gitRepoDetails = {'user': this.gitProfile, 'repo': e.target.id, 'commits': this.gitCommits};
+    this.selectRepoEvent.emit(this.gitRepoDetails);
   }
 
   ngOnInit(){}
