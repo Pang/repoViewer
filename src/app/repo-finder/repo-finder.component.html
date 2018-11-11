@@ -1,3 +1,14 @@
-<p>
-  repo-finder works!
-</p>
+<div class="container text-center">
+  <form (submit)="onSubmit()" #gitForm="ngForm">
+    <h3>GitHub Profile</h3>
+    <input class="w-75 py-1 text-center" type="text" name="gitProfile" [(ngModel)]="gitProfile" ><br>
+    <button class="btn btn-warning w-75 mt-2" type="submit"><b>Go</b></button>
+  </form>
+</div>
+<hr class="mt-5 bg-dark" style="width:100px;">
+<div class="container text-center mt-4" *ngIf="repositories">
+  <h4>Repositories</h4>
+  <ul>
+    <li *ngFor="let repo of repositories"></li>
+  </ul>
+</div>
