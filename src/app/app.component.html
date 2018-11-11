@@ -1,6 +1,9 @@
 <h1 class="bg-dark text-center text-warning pb-3 pt-2">
   Repo*<span class="text-light">Viewer</span>~<span>v2</span>
 </h1>
+<!--'receiveSelectedRepo'in app.component receives the data when 'selectRepoEvent' 
+  is emitted within repo-finder in the function 'selectRepo()'-->
 <app-repo-finder (selectRepoEvent)="receiveSelectedRepo($event)"></app-repo-finder>
 
+<!--These variables are shared from app.component with the child 'commit-finder' -->
 <app-commit-finder [selectedRepo]="selectedRepo" [gitCommits]="gitCommits"></app-commit-finder>

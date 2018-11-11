@@ -16,14 +16,17 @@ export class RepoFinderComponent implements OnInit {
   gitCommits: [];
   errorMsg: boolean = false;
 
+  //EventEmitter used for sending data to sibling component (commit-finder)
   @Output() selectRepoEvent = new EventEmitter<object>();
   gitRepoDetails:{};
 
+  //Uses function from service to find correct address of API and pull data as an object
   onSubmit(){
     this.errorMsg = false;
     this.githubApi.getRepos(this.gitProfile).subscribe(repo => this.repositories = repo.json(), error => this.errorMsg = true);
   }
 
+  //Puts the collected data into an object and emits it once repo clicked from list
   selectRepo(e){
     this.gitRepoDetails = {'user': this.gitProfile, 'repo': e.target.id, 'commits': this.gitCommits};
     this.selectRepoEvent.emit(this.gitRepoDetails);

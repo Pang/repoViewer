@@ -1,3 +1,4 @@
+<!--requires a username input to make get request to API-->
 <div class="container text-center">
   <form (submit)="onSubmit()" #gitForm="ngForm">
     <h4 class="mt-4">GitHub Profile</h4>
@@ -5,8 +6,12 @@
     <button class="btn btn-warning w-75 mt-2" type="submit"><b>Go</b></button>
   </form>
 </div>
+
+<!--Catches a bad request and throws error on client side-->
 <hr class="mt-4 bg-dark" style="width:100px;">
 <div id="errorMsg" class="container bg-danger text-light text-center" *ngIf="errorMsg"><b>Error: User does not exist</b></div>
+
+<!--Displays account repo's if OK request-->
 <div class="container text-center mt-4" *ngIf="repositories">
   <h3><u>Repositories</u></h3>
   <p class="text-muted"><i>Click on a repo for more detail</i></p>
