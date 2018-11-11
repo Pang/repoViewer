@@ -1,0 +1,13 @@
+#errorMsg {
+    width: 250px;
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+input:-webkit-autofill {
+    box-shadow:0 0 0 50px white inset;
+}
