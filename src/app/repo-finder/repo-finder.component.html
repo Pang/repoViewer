@@ -1,8 +1,8 @@
 <!--requires a username input to make get request to API-->
 <div class="container text-center">
-  <form (submit)="onSubmit()" #gitForm="ngForm">
+  <form (submit)="onSubmit(gitProfile)" #gitForm="ngForm">
     <h4 class="mt-4">GitHub Profile</h4>
-    <input class="w-75 py-1 text-center" type="text" name="gitProfile" [(ngModel)]="gitProfile" ><br>
+    <input class="w-75 py-1 text-center" type="text" name="gitProfile" #gitProfile ><br>
     <button class="btn btn-warning w-75 mt-2" type="submit"><b>Go</b></button>
   </form>
 </div>
@@ -16,6 +16,6 @@
   <h3><u>Repositories</u></h3>
   <p class="text-muted"><i>Click on a repo for more detail</i></p>
   <ul>
-    <li *ngFor="let repo of repositories"><a id="{{repo.name}}" (click)="selectRepo($event)">{{repo.name}}</a></li>
+    <li *ngFor="let repo of repositories"><a id="{{repo.name}}" (click)="selectRepo($event, gitProfile)">{{repo.name}}</a></li>
   </ul>
 </div>

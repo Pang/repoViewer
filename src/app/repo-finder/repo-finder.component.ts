@@ -12,7 +12,6 @@ export class RepoFinderComponent implements OnInit {
   constructor(private githubApi: GithubApiService) { }
 
   repositories: any[];
-  gitProfile: string;
   gitCommits: [];
   errorMsg: boolean = false;
 
@@ -21,14 +20,14 @@ export class RepoFinderComponent implements OnInit {
   gitRepoDetails:{};
 
   //Uses function from service to find correct address of API and pull data as an object
-  onSubmit(){
+  onSubmit(gitProfile){
     this.errorMsg = false;
-    this.githubApi.getRepos(this.gitProfile).subscribe(repo => this.repositories = repo.json(), error => this.errorMsg = true);
+    this.githubApi.getRepos(gitProfile.value).subscribe(repo => this.repositories = repo.json(), error => this.errorMsg = true);
   }
 
   //Puts the collected data into an object and emits it once repo clicked from list
-  selectRepo(e){
-    this.gitRepoDetails = {'user': this.gitProfile, 'repo': e.target.id, 'commits': this.gitCommits};
+  selectRepo(e, gitProfile){
+    this.gitRepoDetails = {'user': gitProfile.value, 'repo': e.target.id, 'commits': this.gitCommits};
     this.selectRepoEvent.emit(this.gitRepoDetails);
   }
 
