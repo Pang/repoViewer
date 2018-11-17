@@ -3,7 +3,11 @@
 </h1>
 <!--'receiveSelectedRepo'in app.component receives the data when 'selectRepoEvent' 
   is emitted within repo-finder in the function 'selectRepo()'-->
-<app-repo-finder (selectRepoEvent)="receiveSelectedRepo($event)"></app-repo-finder>
+<app-repo-finder *ngIf="menuOpen === 'repoFinder'" 
+(selectRepoEvent)="receiveSelectedRepo($event)" 
+(currentMenu)="toCommitFinder($event)"></app-repo-finder>
 
 <!--These variables are shared from app.component with the child 'commit-finder' -->
-<app-commit-finder [selectedRepo]="selectedRepo" [gitCommits]="gitCommits"></app-commit-finder>
+<app-commit-finder *ngIf="menuOpen === 'commitFinder'"
+[selectedRepo]="selectedRepo" 
+[gitCommits]="gitCommits"></app-commit-finder>

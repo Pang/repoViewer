@@ -20,4 +20,10 @@ export class AppComponent {
     this.gitUser = e.user;
     this.githubApi.getCommits(this.gitUser, this.selectedRepo).subscribe( commits => this.gitCommits = commits.json());
   }
+
+  menuOpen: string = "repoFinder";
+
+  toCommitFinder(e){
+    this.menuOpen = "commitFinder"
+  }
 }
