@@ -2,8 +2,7 @@
   Repo*<span class="text-light">Viewer</span>~<span>v2</span>
 </h1>
 <h4 *ngIf="menuOpen === 'commitFinder'" 
-class="text-center" 
-(click)="menuOpen = 'repoFinder'">
+class="text-center" (click)="menuOpen = 'repoFinder'">
   <i style="cursor: pointer;" class="material-icons">reply</i>
 </h4>
 
@@ -13,7 +12,10 @@ class="text-center"
 (selectRepoEvent)="receiveSelectedRepo($event)"
 ></app-repo-finder>
 
-<!--These variables are shared from app.component with the child 'commit-finder' -->
-<app-commit-finder *ngIf="menuOpen === 'commitFinder'"
-[selectedRepo]="selectedRepo" 
-[gitCommits]="gitCommits"></app-commit-finder>
+<!--Using the variables passed from repo-finder to app.component -
+  the data is being passed down to commit-item and adding a new div element 
+  for each commit within the object/repo -->
+<div *ngIf="menuOpen === 'commitFinder'" class="container text-center">
+  <h3>{{selectedRepo}}</h3>
+  <app-commit-item *ngFor="let item of gitCommits" [gitCommits]="item"></app-commit-item>
+</div>

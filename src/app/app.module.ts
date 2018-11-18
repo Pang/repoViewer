@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { RepoFinderComponent } from './repo-finder/repo-finder.component';
 import { CommitFinderComponent } from './commit-finder/commit-finder.component';
 import { HttpModule } from '@angular/http';
+import { CommitItemComponent } from './commit-item/commit-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RepoFinderComponent,
-    CommitFinderComponent
+    CommitFinderComponent,
+    CommitItemComponent
   ],
   imports: [
     BrowserModule,
