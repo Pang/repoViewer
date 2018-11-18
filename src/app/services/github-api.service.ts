@@ -11,7 +11,7 @@ export class GithubApiService {
   private clientSecret:string = "d05ba9baef1296718b19f241b4f533f2ab3d0890";
 
   getRepos(gitUser) {
-    return this._http.get(`https://api.github.com/users/${gitUser}/repos?client_id=${this.clientId}&client_secret=${this.clientSecret}`);
+    return this._http.get(`https://api.github.com/users/${gitUser}/repos?client_id=${this.clientId}&client_secret=${this.clientSecret}&per_page=999`);
   }
 
   getCommits(gitUser, selectedRepo) {

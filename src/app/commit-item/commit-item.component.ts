@@ -9,6 +9,6 @@ export class CommitItemComponent implements OnInit {
   constructor() { }
   ngOnInit() {}
 
-  @Input() gitCommits: {};
+  @Input() gitCommits;
 
 }
