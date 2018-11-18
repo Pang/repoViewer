@@ -19,8 +19,7 @@ export class AppComponent {
   receiveSelectedRepo(e){
     this.selectedRepo = e.repo;
     this.gitUser = e.user;
-    this.menuOpen = e.view;
     this.githubApi.getCommits(this.gitUser, this.selectedRepo).subscribe(commits => this.gitCommits = commits.json());
+    this.menuOpen = e.view;
   }
-
 }
