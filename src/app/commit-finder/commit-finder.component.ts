@@ -11,7 +11,6 @@ export class CommitFinderComponent implements OnInit {
 
   //Data collected from parent component
   @Input() selectedRepo: string;
-  @Input() gitUser: string;
   @Input() gitCommits: {};
 
   ngOnInit() {
