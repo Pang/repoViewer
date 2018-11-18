@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { GithubApiService } from '../services/github-api.service';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-repo-finder',
@@ -25,15 +24,12 @@ export class RepoFinderComponent implements OnInit {
   @Output() selectRepoEvent = new EventEmitter<object>();
   gitRepoDetails:{};
 
+  @Output() curretView = new EventEmitter<string>();
+
   //Puts the collected data into an object and emits it once repo clicked from list
   selectRepo(e, gitProfile){
-    this.gitRepoDetails = {'user': gitProfile.value, 'repo': e.target.id, 'commits': this.gitCommits};
+    this.gitRepoDetails = {'user': gitProfile.value, 'repo': e.target.id, 'commits': this.gitCommits, 'view': 'commitFinder'};
     this.selectRepoEvent.emit(this.gitRepoDetails);
-  }
-
-  @Output() currentMenu = new EventEmitter<string>();
-  setCurrentMenu(switchMenu){
-    this.currentMenu.emit(switchMenu);
   }
 
   ngOnInit(){}

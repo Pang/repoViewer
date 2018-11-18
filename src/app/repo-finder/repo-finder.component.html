@@ -16,6 +16,6 @@
   <h3><u>Repositories</u></h3>
   <p class="text-muted"><i>Click on a repo for more detail</i></p>
   <ul>
-    <li *ngFor="let repo of repositories"><a id="{{repo.name}}" (click)="selectRepo($event, gitProfile); setCurrentMenu(commitFinder)">{{repo.name}}</a></li>
+    <li *ngFor="let repo of repositories"><a id="{{repo.name}}" (click)="selectRepo($event, gitProfile)">{{repo.name}}</a></li>
   </ul>
 </div>
