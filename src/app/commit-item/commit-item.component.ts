@@ -10,5 +10,5 @@ export class CommitItemComponent implements OnInit {
   ngOnInit() {}
 
   @Input() gitCommits;
-
+  @Input() i:number;
 }

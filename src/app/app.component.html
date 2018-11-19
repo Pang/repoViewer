@@ -17,5 +17,5 @@ class="text-center" (click)="menuOpen = 'repoFinder'">
   for each commit within the object/repo -->
 <div *ngIf="menuOpen === 'commitFinder'" class="container text-center">
   <h3>{{selectedRepo}}</h3>
-  <app-commit-item *ngFor="let item of gitCommits" [gitCommits]="item"></app-commit-item>
+  <app-commit-item *ngFor="let item of gitCommits; index as i" [gitCommits]="item" [i]="i"></app-commit-item>
 </div>

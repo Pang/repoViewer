@@ -1,6 +1,8 @@
-<div class="mt-3 py-1 px-1 bg-dark text-center text-warning w-50-md">
+<div id="commitItem" class="border border-warning m-3 p-3 bg-dark text-center text-warning">
+  <b><u>{{i}}</u></b><br>
   <b>SHA: </b>{{gitCommits.sha.slice(0,8)}}<br>
   <b>Author: </b>{{gitCommits.commit.author.name}}<br>
-  <b>Date: </b>{{gitCommits.commit.author.date}}<br>
+  <b>Date: </b>{{gitCommits.commit.author.date.slice(0,10)}}<br>
+  <b>Time: </b>{{gitCommits.commit.author.date.slice(11,16)}}<br>
   <b>Message: </b>{{gitCommits.commit.message}}<br>
 </div>

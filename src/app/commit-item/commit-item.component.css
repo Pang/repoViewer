@@ -1,0 +1,6 @@
+#commitItem{
+    display:inline-block;
+    width: 300px;
+    vertical-align:top;
+    border-radius: 10px;
+}

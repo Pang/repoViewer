@@ -15,7 +15,7 @@ export class GithubApiService {
   }
 
   getCommits(gitUser, selectedRepo) {
-    return this._http.get(`https://api.github.com/repos/${gitUser}/${selectedRepo}/commits?client_id=${this.clientId}&client_secret=${this.clientSecret}`);
+    return this._http.get(`https://api.github.com/repos/${gitUser}/${selectedRepo}/commits?client_id=${this.clientId}&client_secret=${this.clientSecret}&per_page=999`);
   }
   
 }
