@@ -20,17 +20,5 @@ export class RepoFinderComponent implements OnInit {
     this.githubApi.getRepos(gitProfile.value).subscribe(repo => this.repositories = repo.json(), error => this.errorMsg = true);
   }
 
-  //EventEmitter used for sending data to sibling component (commit-finder)
-  @Output() selectRepoEvent = new EventEmitter<object>();
-  gitRepoDetails:{};
-
-  @Output() curretView = new EventEmitter<string>();
-
-  //Puts the collected data into an object and emits it once repo clicked from list
-  selectRepo(e, gitProfile){
-    this.gitRepoDetails = {'user': gitProfile.value, 'repo': e.target.id, 'commits': this.gitCommits, 'view': 'commitFinder'};
-    this.selectRepoEvent.emit(this.gitRepoDetails);
-  }
-
   ngOnInit(){}
 }

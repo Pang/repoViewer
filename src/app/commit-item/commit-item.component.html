@@ -1,8 +1,13 @@
-<div id="commitItem" class="border border-warning m-3 p-3 bg-dark text-center text-warning">
-  <b><u>{{i}}</u></b><br>
-  <b>SHA: </b>{{gitCommits.sha.slice(0,8)}}<br>
-  <b>Author: </b>{{gitCommits.commit.author.name}}<br>
-  <b>Date: </b>{{gitCommits.commit.author.date.slice(0,10)}}<br>
-  <b>Time: </b>{{gitCommits.commit.author.date.slice(11,16)}}<br>
-  <b>Message: </b>{{gitCommits.commit.message}}<br>
+<h4 class="text-center">
+  <i routerLink="/" style="cursor: pointer;" class="material-icons">reply</i>
+</h4>
+<div class="text-center">
+  <div *ngFor="let gitCommit of gitCommits; let i = index" id="commitItem" class="border border-warning m-3 p-3 bg-dark text-center text-warning">
+    <b><u>{{i}}</u></b><br>
+    <b>SHA: </b>{{gitCommit.sha.slice(0,8)}}<br>
+    <b>Author: </b>{{gitCommit.commit.author.name}}<br>
+    <b>Date: </b>{{gitCommit.commit.author.date.slice(0,10)}}<br>
+    <b>Time: </b>{{gitCommit.commit.author.date.slice(11,16)}}<br>
+    <b>Message: </b>{{gitCommit.commit.message}}<br>
+  </div>
 </div>
