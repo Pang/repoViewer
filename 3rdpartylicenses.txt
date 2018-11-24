@@ -301,6 +301,9 @@ MIT
 @angular/http
 MIT
 
+@angular/router
+MIT
+
 @angular/forms
 MIT
 
