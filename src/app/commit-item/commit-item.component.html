@@ -1,6 +1,7 @@
 <h4 class="text-center">
-  <i routerLink="/" style="cursor: pointer;" class="material-icons">reply</i>
+  <i id="backBtn" routerLink="/" style="cursor: pointer;" class="material-icons">reply</i>
 </h4>
+<h2 class="text-center">{{ repoCommits }}</h2>
 <div class="text-center">
   <div *ngFor="let gitCommit of gitCommits; let i = index" id="commitItem" class="border border-warning m-3 p-3 bg-dark text-center text-warning">
     <b><u>{{i}}</u></b><br>
