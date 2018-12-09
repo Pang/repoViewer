@@ -18,7 +18,8 @@ export class CommitItemComponent implements OnInit {
   gitCommits: any[];
 
   ngOnInit() {
-    this.githubApi.getCommits(this.gitUser, this.repoCommits).subscribe(commits => this.gitCommits = commits.json());
+    this.githubApi.getCommits(this.gitUser, this.repoCommits).subscribe(
+      (response) => this.gitCommits = response.json());
   }
 
 }

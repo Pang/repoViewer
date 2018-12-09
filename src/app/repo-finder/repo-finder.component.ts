@@ -17,7 +17,9 @@ export class RepoFinderComponent implements OnInit {
   //Uses function from service to find correct address of API and pull data as an object
   onSubmit(gitProfile){
     this.errorMsg = false;
-    this.githubApi.getRepos(gitProfile.value).subscribe(repo => this.repositories = repo.json(), error => this.errorMsg = true);
+    this.githubApi.getRepos(gitProfile.value).subscribe(
+      (response) => this.repositories = response.json(), 
+      (error) => this.errorMsg = true);
   }
 
   ngOnInit(){}
